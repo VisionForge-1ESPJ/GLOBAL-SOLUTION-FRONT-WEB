@@ -50,3 +50,105 @@
     </div>
   </div>
 </header>
+
+<main>
+  <section id="plataforma" data-section="plataforma">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <div>
+          <div class="section-num"><span>02 / PLATAFORMA</span><span class="bar"></span></div>
+          <h2>Console de comando.<br/>Uma visão. Cada brigada.</h2>
+        </div>
+        <p class="lead">
+          Operadores de centro veem o território como o satélite vê — com foco, vetor, vento e ETA atualizando em tempo real. Decisões em segundos, não em horas.
+        </p>
+      </div>
+
+      <div class="dash" data-reveal>
+        <div class="dash-info">
+          <ul class="dash-bullets">
+            <li><span class="tick">✓</span><div><div class="b-t">Camadas combináveis</div><div class="b-d">Foco térmico, vento, combustível e infraestrutura ativados sob demanda.</div></div></li>
+            <li><span class="tick">✓</span><div><div class="b-t">Rotas com janela de risco</div><div class="b-d">Cada caminho exibe ETA, exposição a fumaça e probabilidade de bloqueio.</div></div></li>
+            <li><span class="tick">✓</span><div><div class="b-t">Comando unificado</div><div class="b-d">Despache múltiplas brigadas e veja a cobertura agregada do território.</div></div></li>
+            <li><span class="tick">✓</span><div><div class="b-t">API e webhook abertos</div><div class="b-d">Integração com Defesa Civil, CBM e sistemas legados em minutos.</div></div></li>
+          </ul>
+          <div class="dash-actions">
+            <a class="btn btn-primary" href="contato.html">Ver demo guiada</a>
+            <a class="btn btn-ghost" href="recursos.html">Recursos</a>
+          </div>
+        </div>
+
+        <div class="dash-frame">
+          <div class="dash-bar">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <div class="url">console.orbitrack.space / operacoes / cluster-A-204</div>
+            <div class="live">UPLINK</div>
+          </div>
+          <div class="dash-body">
+            <aside class="dash-side">
+              <div class="label">Brigadas</div>
+              <div class="item act">BRIG-07 · Cerrado N <span class="b">8m</span></div>
+              <div class="item">BRIG-12 · Vale do Rio <span class="b">14m</span></div>
+              <div class="item">BRIG-21 · Serra Leste <span class="b">22m</span></div>
+              <div class="item">BRIG-04 · Cerrado S <span class="b">31m</span></div>
+              <div class="label" style="margin-top:14px">Camadas</div>
+              <div class="item">⚡ Foco térmico <span class="b">ON</span></div>
+              <div class="item">⚡ Vento (15 km/h) <span class="b">ON</span></div>
+              <div class="item">⚡ Combustível <span class="b">ON</span></div>
+              <div class="item item-off">○ Hidrantes <span class="b">OFF</span></div>
+            </aside>
+
+            <div class="dash-map" aria-label="mapa de despacho">
+              <div class="grid"></div>
+              <div class="topo"></div>
+              <div class="topo t2"></div>
+              <div class="topo t3"></div>
+              <div class="station" style="left:14%; top:64%"></div>
+              <div class="pin-label" style="left:18%; top:64%">BRIG-07 <span class="v">8.4m</span></div>
+              <div class="fire" style="left:64%; top:34%"></div>
+              <div class="pin-label fire-l" style="left:64%; top:34%">FOCO #A-204 · 318°C</div>
+              <div class="fire" style="left:72%; top:42%; width:10px; height:10px; opacity:.85"></div>
+              <div class="fire" style="left:58%; top:46%; width:8px; height:8px; opacity:.7"></div>
+              <div class="route" style="left:15%; top:65%; width:34%; transform:rotate(-22deg)"></div>
+              <div class="route solid" style="left:36%; top:55%; width:34%; transform:rotate(-28deg)"></div>
+              <div class="compass">N</div>
+              <div class="scale"><span>0</span><span class="l"></span><span>5 km</span></div>
+            </div>
+
+            <aside class="dash-panel">
+              <div class="pl">Foco #A-204</div>
+              <div class="eta-card">
+                <div class="l">ETA Brigada-07</div>
+                <div class="n">8.4<span class="u">min</span></div>
+                <div class="sub">–47% vs. rota convencional</div>
+              </div>
+              <div class="row"><span class="k">Temp. brilho</span><span class="v fire">318 °C</span></div>
+              <div class="row"><span class="k">FRP</span><span class="v">142 MW</span></div>
+              <div class="row"><span class="k">Vento</span><span class="v cyan">NE · 15 km/h</span></div>
+              <div class="row"><span class="k">Propagação 30m</span><span class="v fire">+1.8 ha</span></div>
+              <div class="row"><span class="k">Combustível</span><span class="v">Cerrado denso</span></div>
+              <div class="row"><span class="k">Confiança</span><span class="v cyan">94%</span></div>
+              <div>
+                <div class="pl" style="margin-top:4px">Densidade térmica · 12h</div>
+                <div class="sparkline" aria-hidden="true">
+                  <span style="height:18%"></span><span style="height:24%"></span><span style="height:32%"></span>
+                  <span style="height:28%"></span><span style="height:44%"></span><span style="height:52%"></span>
+                  <span style="height:68%"></span><span class="h" style="height:82%"></span><span class="h" style="height:96%"></span>
+                  <span style="height:72%"></span><span style="height:60%"></span><span style="height:48%"></span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:48px; display:flex; gap:12px; flex-wrap:wrap">
+        <a class="btn btn-primary" href="recursos.html">
+          Ver recursos
+          <svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="../../index.html">Voltar ao início</a>
+      </div>
+    </div>
+  </section>
+</main>
