@@ -223,3 +223,40 @@
         renderizarPergunta();
       });
     }})
+
+// 7. SELETOR DE TEMA
+  (function () {
+    var btnToggle = document.getElementById('theme-toggle-btn');
+    var painel    = document.getElementById('theme-options');
+    if (!btnToggle || !painel) return;
+
+    btnToggle.addEventListener('click', function () {
+      painel.classList.toggle('open');
+    });
+
+    document.addEventListener('click', function (e) {
+      var switcher = document.getElementById('theme-switcher');
+      if (switcher && !switcher.contains(e.target)) {
+        painel.classList.remove('open');
+      }
+    });
+
+    document.querySelectorAll('.theme-opt').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var tema = btn.dataset.theme;
+        document.body.setAttribute('data-theme', tema);
+        document.querySelectorAll('.theme-opt').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        painel.classList.remove('open');
+        localStorage.setItem('orbitrack-tema', tema);
+      });
+    });
+
+    var temaSalvo = localStorage.getItem('orbitrack-tema');
+    if (temaSalvo) {
+      document.body.setAttribute('data-theme', temaSalvo);
+      document.querySelectorAll('.theme-opt').forEach(function (btn) {
+        btn.classList.toggle('active', btn.dataset.theme === temaSalvo);
+      });
+    }
+  })();
