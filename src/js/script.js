@@ -27,3 +27,17 @@
       navMobile.setAttribute('aria-hidden', !aberto);
     });
   }
+
+  // 3. ANIMAÇÃO DE REVELAÇÃO NO SCROLL
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('[data-reveal]').forEach(function (el) {
+    observer.observe(el);
+  });
