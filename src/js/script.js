@@ -146,3 +146,80 @@
       });
     });
   })();
+
+  (function () {
+    var caixaQuiz = document.getElementById('quiz-box');
+    if (!caixaQuiz) return;
+
+    var perguntas = [
+      { q: 'Qual satélite o OrbiTrack usa como fonte principal?',                               ops:
+  ['Hubble', 'ISS', 'GOES-19', 'Starlink'],             r: 2 },
+      { q: 'A cada quantos minutos o satélite varre o território?',                             ops:
+  ['30min', '15min', '10min', '5min'],                  r: 3 },
+      { q: 'Qual é a resolução espacial dos focos térmicos detectados?',                        ops:
+  ['1.000m', '750m', '500m', '375m'],                   r: 3 },
+      { q: 'Qual é a taxa de precisão na detecção de focos?',                                   ops:
+  ['78%', '85%', '90%', '94%'],                        r: 3 },
+      { q: 'Quantos hectares estão sob monitoramento contínuo?',                                ops:
+  ['500mil', '1,5mi', '3,2mi', '10mi'],                 r: 2 },
+      { q: 'Qual o tempo médio de chegada da brigada após a detecção?',                         ops:
+  ['22min', '14min', '8,4min', '3min'],                 r: 2 },
+      { q: 'Em quanto o OrbiTrack reduz o ETA vs. protocolo convencional?',                     ops:
+  ['–15%', '–30%', '–47%', '–70%'],                    r: 2 },
+      { q: 'Quantas constelações de satélites o OrbiTrack combina?',                            ops:
+  ['1', '2', '3', '4'],                                r: 3 },
+      { q: 'Qual a área mínima de um foco que o sistema detecta?',                              ops:
+  ['5ha', '2ha', '1ha', '0,4ha'],                      r: 3 },
+      { q: 'Qual bioma possui a maior área monitorada pelo OrbiTrack?',                         ops:
+  ['Mata Atlântica', 'Caatinga', 'Pantanal', 'Cerrado'], r: 3 }
+    ];
+
+    var indicePergunta = 0;
+    var pontuacao      = 0;
+    var respondeu      = false;
+
+    function renderizarPergunta() {
+      if (indicePergunta >= perguntas.length) { renderizarResultado(); return; }
+      var p = perguntas[indicePergunta];
+      var progr = Math.round((indicePergunta / perguntas.length) * 100);
+      var opcoesHtml = '';
+      p.ops.forEach(function (op, i) {
+        opcoesHtml += '<button class="quiz-option" data-idx="' + i + '">' + op + '</button>';
+      });
+      caixaQuiz.innerHTML =
+        '<div class="quiz-progress">' +
+          '<span class="quiz-num">Pergunta ' + (indicePergunta + 1) + ' / ' + perguntas.length +
+  '</span>' +
+          '<div class="quiz-bar"><div class="quiz-bar-fill" style="width:' + progr + '%"></div></div>' +
+        '</div>' +
+        '<div class="quiz-question"><p>' + p.q + '</p></div>' +
+        '<div class="quiz-options">' + opcoesHtml + '</div>' +
+        '<div class="quiz-feedback" id="quiz-fb"></div>' +
+        '<button class="btn btn-primary quiz-next" id="quiz-proximo" style="display:none">' +
+          (indicePergunta < perguntas.length - 1 ? 'Próxima pergunta →' : 'Ver resultado →') +
+        '</button>';
+      respondeu = false;
+      caixaQuiz.querySelectorAll('.quiz-option').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          if (respondeu) return;
+          respondeu = true;
+          var escolha = Number(btn.dataset.idx);
+          caixaQuiz.querySelectorAll('.quiz-option').forEach(function (b) { b.disabled = true; });
+          if (escolha === p.r) {
+            pontuacao++;
+            btn.classList.add('correct');
+            document.getElementById('quiz-fb').innerHTML = '<span class="quiz-ok">✓ Correto!</span>';
+          } else {
+            btn.classList.add('wrong');
+            caixaQuiz.querySelectorAll('.quiz-option')[p.r].classList.add('correct');
+            document.getElementById('quiz-fb').innerHTML =
+              '<span class="quiz-err">✗ Incorreto. Resposta: <b>' + p.ops[p.r] + '</b></span>';
+          }
+          document.getElementById('quiz-proximo').style.display = 'inline-flex';
+        });
+      });
+      document.getElementById('quiz-proximo').addEventListener('click', function () {
+        indicePergunta++;
+        renderizarPergunta();
+      });
+    }})
