@@ -128,6 +128,124 @@
     </div>
   </section>
 
+  <!-- SLIDESHOW -->
+
+  <section id="galeria" data-section="galeria">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <div>
+          <div class="section-num"><span>00 / GALERIA</span><span class="bar"></span></div>
+          <h2>OrbiTrack na prática.</h2>
+        </div>
+        <p class="lead">Três momentos que mostram como o sistema opera: da varredura orbital à brigada
+  chegando em campo.</p>
+      </div>
+
+      <div class="slideshow" id="slideshow" data-reveal>
+
+        <div class="slide active" data-slide="0">
+          <div class="slide-inner">
+            <div class="slide-visual sv-1">
+              <div class="sv-rings">
+                <div class="sv-ring sr1"></div><div class="sv-ring sr2"></div><div class="sv-ring
+  sr3"></div>
+                <div class="sv-earth"></div>
+                <div class="sv-sat-orbit">
+                  <div class="sv-sat">
+                    <div class="sv-panel svl"></div><div class="sv-body"></div><div class="sv-panel
+  svr"></div>
+                  </div>
+                </div>
+                <div class="sv-beam"></div>
+              </div>
+            </div>
+            <div class="slide-text">
+              <span class="slide-tag mono">01 / VIGILÂNCIA ORBITAL</span>
+              <h3>Satélite GOES-19 em órbita geoestacionária</h3>
+              <p>Varredura contínua a cada 5 minutos cobrindo todo o território nacional com resolução de
+   375 metros.</p>
+              <div class="slide-stats">
+                <div class="ss-item"><span class="ss-n">5<span class="ss-u">min</span></span><span 
+  class="ss-l">Revisita</span></div>
+                <div class="ss-item"><span class="ss-n">375<span class="ss-u">m</span></span><span 
+  class="ss-l">Resolução</span></div>
+                <div class="ss-item"><span class="ss-n">24/7</span><span 
+  class="ss-l">Cobertura</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide" data-slide="1">
+          <div class="slide-inner">
+            <div class="slide-visual sv-2">
+              <div class="sv-heatmap">
+                <div class="sv-hgrid"></div>
+                <div class="sv-fp svfp1"></div><div class="sv-fp svfp2"></div><div class="sv-fp
+  svfp3"></div>
+                <div class="sv-fp svfp4"></div><div class="sv-fp svfp5"></div>
+                <div class="sv-flabel">3 FOCOS ATIVOS · CERRADO</div>
+              </div>
+            </div>
+            <div class="slide-text">
+              <span class="slide-tag mono fire">02 / DETECÇÃO DE FOCOS</span>
+              <h3>Mapa de calor em tempo real</h3>
+              <p>Algoritmo de fusão multissensor filtra falsos positivos e classifica focos por
+  temperatura e risco de propagação.</p>
+              <div class="slide-stats">
+                <div class="ss-item"><span class="ss-n fire">318<span class="ss-u">°C</span></span><span 
+  class="ss-l">Temp. brilho</span></div>
+                <div class="ss-item"><span class="ss-n">142<span class="ss-u">MW</span></span><span 
+  class="ss-l">FRP</span></div>
+                <div class="ss-item"><span class="ss-n fire">94<span class="ss-u">%</span></span><span 
+  class="ss-l">Precisão</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide" data-slide="2">
+          <div class="slide-inner">
+            <div class="slide-visual sv-3">
+              <div class="sv-routemap">
+                <div class="sv-hgrid"></div>
+                <div class="sv-station-marker"></div>
+                <div class="sv-fire-marker"></div>
+                <div class="sv-route-line rl1"></div>
+                <div class="sv-route-line rl2 rl-active"></div>
+                <div class="sv-eta-badge">ETA 8.4<span>min</span></div>
+                <div class="sv-brig-label">BRIG-07</div>
+              </div>
+            </div>
+            <div class="slide-text">
+              <span class="slide-tag mono">03 / DESPACHO INTELIGENTE</span>
+              <h3>Rota otimizada para a brigada</h3>
+              <p>O motor calcula o caminho com menor risco humano, evitando fumaça densa, terreno
+  instável e janelas de propagação.</p>
+              <div class="slide-stats">
+                <div class="ss-item"><span class="ss-n">8.4<span class="ss-u">min</span></span><span 
+  class="ss-l">ETA médio</span></div>
+                <div class="ss-item"><span class="ss-n fire">–47<span class="ss-u">%</span></span><span 
+  class="ss-l">vs. protocolo</span></div>
+                <div class="ss-item"><span class="ss-n">12.4<span class="ss-u">k</span></span><span 
+  class="ss-l">ha salvos</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="slide-btn slide-prev" id="slide-prev" aria-label="Slide anterior">&#8592;</button>
+        <button class="slide-btn slide-next" id="slide-next" aria-label="Próximo slide">&#8594;</button>
+
+        <div class="slide-dots">
+          <button class="slide-dot active" data-index="0" aria-label="Slide 1"></button>
+          <button class="slide-dot" data-index="1" aria-label="Slide 2"></button>
+          <button class="slide-dot" data-index="2" aria-label="Slide 3"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- TECNOLOGIA -->
   <section id="tecnologia" data-section="tecnologia">
     <div class="container">
