@@ -37,3 +37,40 @@
     text-rendering:optimizeLegibility;
     overflow-x:hidden;
   }
+
+  ::selection{background:rgba(255,107,0,.35);color:#fff}
+
+  /* Barra de rolagem customizada */
+  ::-webkit-scrollbar{width:5px}
+  ::-webkit-scrollbar-track{background:var(--bg-2)}
+  ::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:3px}
+  ::-webkit-scrollbar-thumb:hover{background:var(--muted-2)}
+
+  /* Anel de foco */
+  :focus-visible{
+    outline:2px solid var(--cyan);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  /* Gradiente ambiente da página */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(900px 600px at 12% -10%, rgba(0,229,255,.08), transparent 60%),
+      radial-gradient(800px 500px at 100% 10%, rgba(255,107,0,.07), transparent 60%),
+      radial-gradient(700px 500px at 50% 110%, rgba(0,229,255,.05), transparent 60%);
+  }
+
+  /* Textura de grade sutil */
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+    background-image:
+      linear-gradient(rgba(31,41,55,.45) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(31,41,55,.45) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse at 50% 0%, #000 0, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 0, transparent 70%);
+  }
+
+  main, header, footer{position:relative;z-index:1}
