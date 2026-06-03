@@ -41,3 +41,45 @@
   document.querySelectorAll('[data-reveal]').forEach(function (el) {
     observer.observe(el);
   });
+
+  // 4. SLIDESHOW
+  (function () {
+    var slides      = document.querySelectorAll('.slide');
+    var dots        = document.querySelectorAll('.slide-dot');
+    var btnAnterior = document.getElementById('slide-prev');
+    var btnProximo  = document.getElementById('slide-next');
+    if (!slides.length) return;
+
+    var indiceAtual = 0;
+    var timer       = null;
+
+    function irPara(n) {
+      slides[indiceAtual].classList.remove('active');
+      dots[indiceAtual].classList.remove('active');
+      indiceAtual = (n + slides.length) % slides.length;
+      slides[indiceAtual].classList.add('active');
+      dots[indiceAtual].classList.add('active');
+    }
+
+    function proximo()  { irPara(indiceAtual + 1); }
+    function anterior() { irPara(indiceAtual - 1); }
+
+    function iniciarAutoplay() {
+      clearInterval(timer);
+      timer = setInterval(proximo, 4000);
+    }
+
+    if (btnProximo)  btnProximo.addEventListener('click',  function () { proximo();  iniciarAutoplay();
+  });
+    if (btnAnterior) btnAnterior.addEventListener('click', function () { anterior(); iniciarAutoplay();
+  });
+
+    dots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        irPara(Number(dot.dataset.index));
+        iniciarAutoplay();
+      });
+    });
+
+    iniciarAutoplay();
+  })();
