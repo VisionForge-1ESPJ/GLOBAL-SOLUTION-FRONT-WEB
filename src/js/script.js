@@ -84,21 +84,65 @@
     iniciarAutoplay();
   })();
 
-  // 5. VALIDAÇÃO DO FORMULÁRIO (versão inicial)
-  var form = document.getElementById('cta-form');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var org   = document.getElementById('org').value;
-      var email = document.getElementById('email').value;
-      if (org == '' || email == '') {
-        alert('Preencha todos os campos obrigatórios!');
-        return;
+// 5. VALIDAÇÃO DO FORMULÁRIO (melhorada após IA)
+  (function () {
+    var forms = document.querySelectorAll('#cta-form');
+    forms.forEach(function (form) {
+
+      function mostrarErro(input, mensagem) {
+        var row = input.closest('.f-row');
+        if (!row) return;
+        row.classList.add('has-error');
+        var erro = row.querySelector('.field-error');
+        if (!erro) {
+          erro = document.createElement('span');
+          erro.className = 'field-error';
+          row.appendChild(erro);
+        }
+        erro.textContent = mensagem;
       }
-      if (email.indexOf('@') == -1) {
-        alert('E-mail inválido!');
-        return;
+
+      function limparErro(input) {
+        var row = input.closest('.f-row');
+        if (!row) return;
+        row.classList.remove('has-error');
+        var erro = row.querySelector('.field-error');
+        if (erro) erro.remove();
       }
-      alert('Formulário enviado com sucesso!');
+
+      function emailValido(valor) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valor);
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var org   = form.querySelector('#org');
+        var email = form.querySelector('#email');
+        var valido = true;
+        if (org)   limparErro(org);
+        if (email) limparErro(email);
+        if (org && !org.value.trim()) {
+          mostrarErro(org, 'Informe o nome da organização.');
+          valido = false;
+        }
+        if (email && !email.value.trim()) {
+          mostrarErro(email, 'Informe o e-mail institucional.');
+          valido = false;
+        } else if (email && !emailValido(email.value)) {
+          mostrarErro(email, 'Formato de e-mail inválido.');
+          valido = false;
+        }
+        if (!valido) return;
+        form.innerHTML =
+          '<div class="form-success">' +
+          '<div class="ok-icon">✓</div>' +
+          '<h4>Proposta enviada!</h4>' +
+          '<p>Verifique seu e-mail institucional para os próximos passos.</p>' +
+          '</div>';
+      });
+
+      form.querySelectorAll('input').forEach(function (input) {
+        input.addEventListener('input', function () { limparErro(input); });
+      });
     });
-  }
+  })();
