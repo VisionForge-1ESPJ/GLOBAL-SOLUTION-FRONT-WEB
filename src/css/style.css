@@ -101,3 +101,166 @@
     background:rgba(0,229,255,.05);
     border-radius:999px;
   }
+  .eyebrow .dot{
+    width:6px;height:6px;border-radius:999px;background:var(--cyan);
+    box-shadow:0 0 12px var(--cyan);
+    animation:pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+  /* Layout ----------------------------------------------------- */
+  .container{max-width:var(--maxw); margin:0 auto; padding:0 var(--pad)}
+  section{padding:120px 0; position:relative}
+  section + section{border-top:1px solid var(--border)}
+
+  /* Barra de navegação ----------------------------------------- */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    background:rgba(8,12,20,.72);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:14px var(--pad);
+    display:flex; align-items:center; gap:24px; justify-content:space-between;
+  }
+  .brand{display:flex; align-items:center; gap:12px; font-family:'Space Grotesk'; font-weight:600; letter-spacing:-0.01em; cursor:pointer}
+  .brand-mark{
+    width:32px;height:32px;border-radius:8px;
+    background:linear-gradient(135deg, rgba(255,107,0,.95), rgba(255,107,0,.5));
+    position:relative; overflow:hidden;
+    box-shadow:0 0 0 1px rgba(255,107,0,.4), 0 6px 20px -6px rgba(255,107,0,.6);
+    transition: transform .2s var(--ease-out-expo), box-shadow .2s ease;
+  }
+  .brand:hover .brand-mark{
+    transform: scale(1.08);
+    box-shadow:0 0 0 1px rgba(255,107,0,.6), 0 8px 24px -6px rgba(255,107,0,.8);
+  }
+  .brand-mark::before, .brand-mark::after{
+    content:""; position:absolute; left:50%; top:50%;
+    width:18px; height:18px; border:1.5px solid #fff; border-radius:50%;
+    transform:translate(-50%,-50%);
+  }
+  .brand-mark::after{
+    width:6px;height:6px; background:#fff; border:0;
+    box-shadow:0 0 8px #fff;
+  }
+  .brand-name{font-size:15px}
+  .brand-tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px; color:var(--muted-2);
+    border-left:1px solid var(--border-2);
+    padding-left:10px; margin-left:4px;
+    letter-spacing:.12em; text-transform:uppercase;
+  }
+
+  .nav-links{display:flex; gap:4px; align-items:center}
+  .nav-link{
+    position:relative; padding:8px 14px; font-size:13.5px; color:var(--muted);
+    border-radius:8px; transition: color .2s ease, background .15s ease;
+    font-weight:500; cursor:pointer;
+  }
+  .nav-link:hover{color:var(--fg); background:rgba(255,255,255,.04)}
+  .nav-link.active{color:var(--fg)}
+  .nav-link.active::after{
+    content:""; position:absolute; left:14px; right:14px; bottom:-15px; height:2px;
+    background:var(--cyan);
+    box-shadow:0 0 12px var(--cyan), 0 0 2px var(--cyan);
+    border-radius:2px;
+  }
+  .nav-cta{display:flex; gap:8px; align-items:center}
+  .nav-status{
+    display:flex;align-items:center;gap:8px;
+    font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--muted);
+    padding:6px 10px; border:1px solid var(--border); border-radius:999px;
+  }
+  .nav-status .live{width:6px;height:6px;border-radius:50%;background:var(--ok); box-shadow:0 0 8px var(--ok); animation:pulse 1.8s infinite}
+
+  /* Botão hambúrguer ------------------------------------------- */
+  .nav-toggle{
+    display:none;
+    flex-direction:column; justify-content:center; align-items:center; gap:5px;
+    width:36px; height:36px;
+    background:none; border:1px solid var(--border);
+    border-radius:8px; cursor:pointer; padding:8px;
+    transition: border-color .2s ease;
+    flex-shrink:0;
+  }
+  .nav-toggle:hover{border-color:var(--border-2)}
+  .nav-toggle span{
+    display:block; width:16px; height:1.5px;
+    background:var(--fg); border-radius:2px;
+    transition: transform .25s var(--ease-out-expo), opacity .2s ease, width .2s ease;
+    transform-origin:center;
+  }
+  .nav-toggle.open span:nth-child(1){transform: translateY(6.5px) rotate(45deg)}
+  .nav-toggle.open span:nth-child(2){opacity:0; transform: scaleX(0)}
+  .nav-toggle.open span:nth-child(3){transform: translateY(-6.5px) rotate(-45deg)}
+
+  /* Painel de navegação mobile */
+  .nav-mobile{
+    display:none;
+    border-top:1px solid var(--border);
+    background:rgba(8,12,20,.98);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    padding:16px 24px 20px;
+    animation: mobileNavIn .25s var(--ease-out-expo);
+  }
+  @keyframes mobileNavIn{
+    from{opacity:0; transform:translateY(-8px)}
+    to{opacity:1; transform:none}
+  }
+  .nav-mobile.open{display:block}
+  .nav-mobile-links{display:flex; flex-direction:column; gap:2px; margin-bottom:16px}
+  .nav-mobile .nav-link{padding:12px 8px; font-size:15px; border-radius:8px}
+  .nav-mobile-footer{padding-top:12px; border-top:1px solid var(--border)}
+  .nav-mobile-footer .btn{width:100%; justify-content:center}
+
+  /* Botões ----------------------------------------------------- */
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:12px 18px; border-radius:10px;
+    font-family:'Inter'; font-weight:500; font-size:14px;
+    border:1px solid transparent; cursor:pointer;
+    transition: transform .15s var(--ease-out-expo), box-shadow .2s ease, background .2s ease, border-color .2s ease;
+    white-space:nowrap;
+    user-select:none;
+    -webkit-user-select:none;
+  }
+  .btn:active{transform: scale(0.97) !important}
+  .btn-primary{
+    background:var(--fire); color:#0A0A0A;
+    box-shadow: 0 0 0 1px rgba(255,107,0,.4), 0 14px 30px -10px rgba(255,107,0,.55);
+    font-weight:600;
+  }
+  .btn-primary:hover{ transform: translateY(-1px) scale(1.01); background:var(--fire-soft); box-shadow: var(--shadow-fire) }
+  .btn-ghost{
+    background:transparent; color:var(--fg); border-color:var(--border-2);
+  }
+  .btn-ghost:hover{ border-color:var(--cyan); color:var(--cyan); background:rgba(0,229,255,.05); transform: translateY(-1px) }
+  .btn .arrow{width:14px;height:14px;display:inline-block; transition: transform .2s var(--ease-out-expo)}
+  .btn:hover .arrow{transform: translateX(3px)}
+
+  .btn-mini{
+    padding:6px 10px; font-size:11px;
+    font-family:'JetBrains Mono', monospace; letter-spacing:.06em; text-transform:uppercase;
+    border-radius:6px;
+  }
+
+  /* Cards e superfícies ---------------------------------------- */
+  .card{
+    background: linear-gradient(180deg, rgba(17,24,39,.85), rgba(11,18,32,.85));
+    border:1px solid var(--border);
+    border-radius: var(--r-md);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Sistema de animação de revelação --------------------------- */
+  @keyframes revealUp{
+    from{opacity:0; transform:translateY(24px)}
+    to{opacity:1; transform:none}
+  }
