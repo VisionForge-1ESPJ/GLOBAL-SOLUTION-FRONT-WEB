@@ -1,12 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <title>Document</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Plataforma — OrbiTrack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-    
-</body>
-</html>
+
+<header class="nav" id="topnav">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html" aria-label="OrbiTrack - início">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">OrbiTrack</span>
+      <span class="brand-tag mono">v2.4 · ORBITAL</span>
+    </a>
+
+    <nav class="nav-links" aria-label="primária">
+      <a class="nav-link" href="tecnologia.html">Tecnologia</a>
+      <a class="nav-link active" href="plataforma.html">Plataforma</a>
+      <a class="nav-link" href="recursos.html">Recursos</a>
+      <a class="nav-link" href="impacto.html">Impacto</a>
+      <a class="nav-link" href="contato.html">Contato</a>
+    </nav>
+
+    <div class="nav-cta">
+      <div class="nav-status mono"><span class="live"></span> 4 SATÉLITES · ATIVO</div>
+      <a class="btn btn-ghost btn-mini" href="contato.html">Acessar console</a>
+    </div>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-mobile">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+    <nav class="nav-mobile-links" aria-label="menu mobile">
+      <a class="nav-link" href="tecnologia.html">Tecnologia</a>
+      <a class="nav-link active" href="plataforma.html">Plataforma</a>
+      <a class="nav-link" href="recursos.html">Recursos</a>
+      <a class="nav-link" href="impacto.html">Impacto</a>
+      <a class="nav-link" href="contato.html">Contato</a>
+    </nav>
+    <div class="nav-mobile-footer">
+      <a class="btn btn-primary" href="contato.html">Acessar console</a>
+    </div>
+  </div>
+</header>
