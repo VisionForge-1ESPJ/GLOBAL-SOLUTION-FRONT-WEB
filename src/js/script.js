@@ -83,3 +83,22 @@
 
     iniciarAutoplay();
   })();
+
+  // 5. VALIDAÇÃO DO FORMULÁRIO (versão inicial)
+  var form = document.getElementById('cta-form');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var org   = document.getElementById('org').value;
+      var email = document.getElementById('email').value;
+      if (org == '' || email == '') {
+        alert('Preencha todos os campos obrigatórios!');
+        return;
+      }
+      if (email.indexOf('@') == -1) {
+        alert('E-mail inválido!');
+        return;
+      }
+      alert('Formulário enviado com sucesso!');
+    });
+  }
