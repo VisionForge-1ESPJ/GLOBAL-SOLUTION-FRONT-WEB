@@ -20,8 +20,8 @@ RM:   RM569454
 
 === REPOSITÓRIO ===
 
-Link GitHub: 
+Link GitHub: https://github.com/VisionForge-1ESPJ/GLOBAL-SOLUTION-FRONT-WEB
 
 === ORGANIZAÇÃO ===
 
-Nome da Organização GitHub: 
+Nome da Organização GitHub: VisionForge-1ESPJ

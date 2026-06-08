@@ -222,7 +222,10 @@
         indicePergunta++;
         renderizarPergunta();
       });
-    }})
+    }
+
+    renderizarPergunta();
+  })();
 
 // 7. SELETOR DE TEMA
   (function () {

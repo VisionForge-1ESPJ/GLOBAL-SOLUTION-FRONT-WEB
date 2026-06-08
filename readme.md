@@ -104,8 +104,8 @@ Este projeto utilizou IA como ferramenta de apoio ao desenvolvimento JavaScript.
 
 ## Repositório GitHub
 
-link após criar na Organização do GitHub
-
+https://github.com/VisionForge-1ESPJ/GLOBAL-SOLUTION-FRONT-WEB
+https://visionforge-1espj.github.io/GLOBAL-SOLUTION-FRONT-WEB/
 ---
 
 © 2026 OrbiTrack · FIAP · Web Development
